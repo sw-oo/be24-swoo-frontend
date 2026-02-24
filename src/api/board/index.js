@@ -27,4 +27,18 @@ const findByTitle = async (title) => {
   return res.data
 }
 
-export default { save, list, findById, findByTitle }
+const update = async (idx, dto) => {
+  const res = await api.put(`/board/update/${idx}`, {
+    title: dto.title,
+    contents: dto.contents
+  })
+  return res.data
+}
+
+const deleteById = async (idx) => {
+  const res = await api.delete(`/board/delete/${idx}`)
+  return res.data
+}
+
+
+export default { save, list, findById, findByTitle, update, deleteById  }
