@@ -10,7 +10,7 @@ const displayedPosts = ref([])
 
 onMounted(async () => {
   const res = await boardApi.list()
-  posts.value = res.data
+  posts.value = res
   displayedPosts.value = posts.value.slice(0, 5);
 })
 
@@ -49,7 +49,7 @@ const goToCreatePost = () => {
       <button @click="goToCreatePost">게시글 추가</button>
     </div>
     <div>
-      <div v-for="post in displayedPosts" :key="post.id">
+      <div v-for="post in displayedPosts" :key="post.idx">
         <div>{{ post.title }}</div>
         <div>{{ post.contents }}</div>
       </div>
