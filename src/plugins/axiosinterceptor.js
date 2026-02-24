@@ -2,7 +2,7 @@ import axios from 'axios'
 
 // URL 설정
 const api = axios.create({
-  baseURL: 'http://localhost:5173/api',
+  baseURL: '/api',
   timeout: 5000,
 })
 
